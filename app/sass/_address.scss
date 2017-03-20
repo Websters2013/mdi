@@ -1,0 +1,52 @@
+.address {
+  position: relative;
+  padding: 50px 15px 20px 15px;
+  background: url(../img/bg-contact.jpg) no-repeat 0 0 #ededef;
+  @include malva-regular;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 24px;
+  z-index: 2;
+
+  &__frame{
+    display: block;
+    margin: 0 0 22px 5px;
+    cursor: default;
+  }
+
+  &__phone{
+    cursor: default;
+  }
+
+  a{
+    color: #8c8c8c;
+  }
+
+  h2{
+    margin-bottom: 48px;
+    font-size: 27px;
+    @include malva-bold;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .address {
+    width: 44%;
+    height: 1017px;
+    padding: 296px 0 0 52px;
+    background-position: 100% 0;
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .address {
+    //min-width: 848px;
+    padding-left: 102px;
+    background-position: 0 0;
+  }
+
+}

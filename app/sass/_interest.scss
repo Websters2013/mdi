@@ -1,0 +1,55 @@
+.interest {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  bottom: 30px;
+  margin: 0 auto;
+  color: #8d8d8d;
+  @include malva-regular;
+  font-size: 20px;
+  z-index: 3;
+  text-align: center;
+  line-height: 40px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  a, span{
+    color: #000;
+    cursor: default;
+  }
+
+  &__ava{
+    width: 115px;
+    margin: 0 auto 12px;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &__topic{
+    margin-bottom: 3px;
+    letter-spacing: 1px;
+    color: #000;
+    font-size: 30px;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .interest {
+    bottom: 119px;
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .interest {
+    bottom: 169px;
+  }
+
+}

@@ -1,0 +1,20 @@
+.logo {
+
+  svg{
+    fill:#000;
+
+    .st1{fill:#000;}
+    .st2{fill:#000;}
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .logo {
+    top: 31px;
+    width: 129px;
+  }
+
+}

@@ -1,0 +1,76 @@
+.about {
+  position: relative;
+  min-height: 100vh;
+  padding: 152px 15px 0;
+  color: #fff;
+  @include malva-regular;
+  font-size: 16px;
+  line-height: 26px;
+  background: url(../img/bg-about.jpg) no-repeat 50% 100%;
+  background-size: cover;
+  z-index: 2;
+
+  h1{
+    max-width: 1140px;
+    margin: 0 auto 45px;
+    font-size: 27px;
+    line-height: 31px;
+    letter-spacing: .5px;
+    white-space: pre-line;
+  }
+
+  &__wrap{
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .about {
+
+    h1 {
+      padding-right: 15%;
+      font-size: 48px;
+      line-height: 57px;
+    }
+
+    &__wrap{
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+
+      > div {
+        margin-left: 30px;
+        width: 360px;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .about {
+    padding: 252px 0 0;
+
+    h1{
+      padding-right: 30%;
+    }
+
+    &__wrap{
+      justify-content: space-between;
+      padding: 0 94px 0 295px;
+
+      > div {
+        margin-left: 0;
+      }
+
+    }
+
+  }
+
+}

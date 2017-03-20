@@ -1,0 +1,277 @@
+.service {
+  position: relative;
+  padding: 65px 15px 60px;
+  overflow: hidden;
+
+  &:before{
+    position: absolute;
+    top: 52%;
+    left: -150%;
+    height: 100%;
+    width: 600%;
+    background-color: #fff;
+    -webkit-transform: translateX(-50%) rotate(23deg);
+    transform: translateX(-50%) rotate(23deg);
+    z-index: 2;
+    content: '';
+  }
+
+  h2{
+    margin-bottom: 64px;
+    color: #fff;
+    font-size: 26px;
+    @include malva-bold;
+  }
+
+  &__wrap{
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+    z-index: 3;
+  }
+
+  &__item{
+    margin-bottom: 65px;
+    color: #fff;
+
+    &_3{
+      color: #000;
+    }
+
+    &.active{
+
+      .service__img{
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+    }
+
+  }
+
+  &__content{
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 26px;
+    @include malva-regular;
+
+    dt{
+      margin-bottom: 12px;
+      font-size: 24px;
+      @include malva-bold;
+      line-height: 30px;
+    }
+
+  }
+
+  &__img{
+    -webkit-transition: transform .3s ease;
+    transition: transform .3s ease;
+    -webkit-transform: scale(0.97);
+    transform: scale(0.97);
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &__menu{
+    display: none;
+  }
+
+  &__deco{
+    display: none;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .service {
+    padding: 65px 15px 292px;
+
+    &:before{
+      top: 67%;
+      left: 50%;
+      width: 400%;
+      -webkit-transform: translateX(-50%) rotate(29deg);
+      transform: translateX(-50%) rotate(29deg);
+    }
+
+    h2{
+      font-size: 48px;
+    }
+
+    &__item{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0;
+
+      &:nth-child(odd){
+
+        .service__content{
+          padding-left: 57px;
+          padding-right: 0;
+          order: 2;
+        }
+
+        .service__img{
+          order: 1;
+        }
+
+      }
+
+      &_1{
+        align-items: flex-start;
+        flex-direction: column;
+        margin: 160px 0 106px;
+
+        .service__content{
+          position: relative;
+          margin-bottom: -34px;
+          z-index: 2;
+        }
+
+        .service__img{
+          width: 100%;
+        }
+
+      }
+
+      &_2 {
+        min-height: 438px;
+
+        .service__content {
+          margin: 20px 0 0;
+        }
+
+      }
+
+    }
+
+    &__content{
+      width: 50%;
+      padding-right: 15px;
+
+      dt{
+        padding-right: 28%;
+        font-size: 32px;
+        line-height: 48px;
+      }
+
+    }
+
+    &__img {
+      width: 50%;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .service {
+    padding: 65px 0 292px;
+
+    &__deco{
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      max-height: 100vh;
+      -webkit-transition: transform .3s ease;
+      transition: transform .3s ease;
+      z-index: 1;
+
+      &_1{
+        top: 1600px;
+        right: -10px;
+        z-index: 2;
+      }
+
+      &_2{
+        top: 100px;
+        left: 150px;
+      }
+
+      /*&.fix{
+        position: fixed;
+      }*/
+
+    }
+
+  }
+
+}
+
+@media (min-width: 1500px) {
+
+  .service {
+
+    &__menu{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      max-height: 100vh;
+      z-index: 5;
+
+      &-item{
+        display: block;
+        position: relative;
+        padding-left: 12px;
+        color: #616161;
+        @include malva-regular;
+        font-size: 16px;
+        line-height: 36px;
+        -webkit-transition: padding-left .3s ease, color .3s ease;
+        transition: padding-left .3s ease, color .3s ease;
+
+        &.active{
+          padding-left: 35px;
+          color: #d7d7d7;
+        }
+
+        &:before{
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: #f0f;
+          -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+          -webkit-transition: width .3s ease;
+          transition: width .3s ease;
+          content: '';
+        }
+
+        &:hover, &.active{
+          padding-left: 35px;
+
+          &:before{
+            width: 20px;
+          }
+
+        }
+
+      }
+
+      &.service__menu_fix{
+        position: fixed;
+      }
+
+    }
+
+  }
+
+}

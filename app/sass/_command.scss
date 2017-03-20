@@ -1,0 +1,82 @@
+.command {
+  padding-bottom: 61px;
+  background-color: #fff;
+
+  &__wrap{
+    padding: 0 15px;
+
+    h2{
+      margin-bottom: 59px;
+      color: #000;
+      @include malva-bold;
+      font-size: 27px;
+    }
+
+    ul{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 -20px;
+    }
+
+  }
+
+  &__item{
+    margin: 0 15px 87px;
+    color: #1f1f1f;
+    @include malva-regular;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &__photo{
+    width: 263px;
+    margin-bottom: -15px;
+
+    img{
+      display: block;
+      width: 100%;
+    }
+
+  }
+
+  &__name{
+    margin-bottom: 12px;
+    font-size: 26px;
+    @include malva-bold;
+    line-height: 33px;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .command {
+    padding-bottom: 321px;
+
+    &__wrap{
+      max-width: 1140px;
+      margin: 0 auto;
+
+      h2{
+        font-size: 48px;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .command {
+
+    &__wrap{
+      padding: 0;
+    }
+
+  }
+
+}

@@ -1,0 +1,464 @@
+.filter {
+  position: relative;
+  margin: 0 auto 126px;
+  color: #8f8f8f;
+  @include malva-regular;
+  font-size: 17px;
+  z-index: 10;
+
+  &__main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 66px;
+    border: 1px solid #3e3e3e;
+  }
+
+  &__form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__item{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 73px;
+    width: 100%;
+    border-bottom: 1px solid #3e3e3e;
+    -webkit-transition: background-color .3s ease;
+    transition: background-color .3s ease;
+
+    &-label{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 27px 15px;
+      cursor: pointer;
+
+      &:after{
+        position: absolute;
+        top: 28px;
+        right: 28px;
+        width: 7px;
+        height: 7px;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform: rotate(45deg);
+        -webkit-transition: border-color .3s ease;
+        transition: border-color .3s ease;
+        content: '';
+      }
+
+    }
+
+    &-popup{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 5;
+      -webkit-transition: opacity .3s ease, visibility .3s ease;
+      transition: opacity .3s ease, visibility .3s ease;
+
+      label{
+        display: block;
+        position: relative;
+        margin-bottom: 15px;
+        padding: 4px 23px;
+
+        &:hover{
+          color: #000;
+        }
+
+        span{
+          -webkit-transition: padding-left .3s ease;
+          transition: padding-left .3s ease;
+
+          &:before{
+            position: absolute;
+            top: 9px;
+            left: 27px;
+            width: 5px;
+            height: 7px;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            transform: rotate(45deg);
+            -webkit-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+            opacity: 0;
+            content: '';
+          }
+
+        }
+
+      }
+
+      input[type=checkbox]{
+        display: none;
+
+        &:checked + span{
+          color: #000;
+          padding-left: 22px;
+
+          &:before{
+            opacity: 1;
+          }
+
+        }
+
+      }
+
+    }
+
+    &.open{
+      background-color: #fff;
+
+      .filter__item-popup{
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .filter__item-label:after{
+        border-color: #000;
+      }
+
+    }
+
+  }
+
+  &__sort{
+    position: absolute;
+    top: 100%;
+    left: 2px;
+    margin-top: 41px;
+    line-height: 28px;
+
+    button{
+      position: relative;
+      margin-right: 7px;
+      padding: 0 17px 0 0;
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      font-size: 18px;
+      @include malva-regular;
+      transition: color .3s ease;
+
+      &:after{
+        position: absolute;
+        top: 5px;
+        right: 0;
+        width: 7px;
+        height: 7px;
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        transform: rotate(45deg);
+        -webkit-transition: border-color .3s ease, top .3s ease, transform .3s ease;
+        transition: border-color .3s ease, top .3s ease, transform .3s ease;
+        content: '';
+      }
+
+      &:hover{
+        color: #ea138c;
+
+        &:after{
+          border-color: #ea138c;
+        }
+
+      }
+
+    }
+
+    .websters-select{
+
+      &__item{
+        padding-right: 18px;
+        text-overflow: clip;
+        color: #fff;
+      }
+
+      &__arrow{
+        right: 0;
+        width: 11px;
+
+        &:before{
+          top: 9px;
+        }
+
+      }
+
+      &__popup{
+        padding-top: 15px;
+
+        li{
+          padding: 6px 20px;
+        }
+
+      }
+
+    }
+
+  }
+
+  &__data{
+
+    &.active_desc:after{
+      top: 10px;
+      -webkit-transform: rotate(225deg);
+      transform: rotate(225deg);
+    }
+
+  }
+
+  &_location{
+
+    .websters-select{
+      width: 100%;
+
+      &__item{
+        border-bottom: 2px solid #7a7a7a;
+      }
+
+      &__popup li:first-child{
+        display: none;
+      }
+
+    }
+
+  }
+
+  &_good{
+
+    .websters-select{
+      width: 100%;
+
+      &__popup li:first-child{
+        display: none;
+      }
+
+    }
+
+  }
+
+  &_budget{
+    height: auto;
+    min-height: 73px;
+
+    .websters-select{
+      padding: 19px 26px 19px 4px;
+      margin-right: 9px;
+
+      &__arrow{
+        right: 0;
+        width: 12px;
+
+        &:before{
+          top: 20px;
+        }
+
+      }
+
+    }
+
+    .filter__item-label{
+      position: relative;
+      padding: 14px 15px;
+      line-height: 29px;
+
+      &:after{
+        display: none;
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: bottom;
+        position: relative;
+        max-width: 120px;
+        margin-right: 8px;
+        padding-right: 25px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: #fff;
+
+        &:after {
+          position: absolute;
+          top: 8px;
+          right: 2px;
+          width: 7px;
+          height: 7px;
+          border-right: 1px solid #fff;
+          border-bottom: 1px solid #fff;
+          transform: rotate(45deg);
+          transition: border-color .3s ease;
+          content: '';
+        }
+
+      }
+
+    }
+
+    .filter__item-popup{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 23px 27px;
+
+      input{
+        width: 45%;
+        height: 36px;
+        padding: 0 5px;
+        border: 1px solid #ccc;
+        @include malva-regular;
+        font-size: 16px;
+
+        &.required{
+          border-color: #000;
+        }
+
+      }
+
+    }
+
+    &.open .filter__item-label span{
+      color: #000;
+      -webkit-transition: color .3s ease;
+      transition: color .3s ease;
+
+      &:after{
+        border-color: #000;
+        -webkit-transition: border-color .3s ease;
+        transition: border-color .3s ease;
+      }
+
+    }
+
+  }
+
+  &_room{
+
+    .websters-select{
+      width: 100%;
+      padding: 26px 15px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .filter {
+
+    &__main{
+      border-right: 0;
+    }
+
+    &__form{
+      flex-flow: row nowrap;
+      height: 73px;
+      padding-top: 0;
+    }
+
+    &__item{
+      border-right: 1px solid #3e3e3e;
+
+      &-label span:after{
+        right: 24px;
+      }
+
+    }
+
+    &__sort{
+      margin-top: 66px;
+    }
+
+    &_good{
+      width: 22%;
+    }
+
+    &_budget {
+      width: 45%;
+      min-height: 73px;
+
+      .filter__item-label{
+        position: absolute;
+        padding: 27px 15px;
+        white-space: nowrap;
+        line-height: 1;
+
+        span:after{
+          top: 1px;
+        }
+
+      }
+
+    }
+
+    &_room {
+      width: 33%;
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .filter {
+    max-width: 1138px;
+    font-size: 18px;
+
+    &__main{
+      flex-flow: row nowrap;
+      height: 73px;
+    }
+
+    &__form{
+      width: calc( 100% - 275px );
+    }
+
+    &__item{
+
+      &-label{
+        padding: 27px 23px;
+      }
+
+    }
+
+    &_location {
+      width: 275px;
+    }
+
+    &_good{
+      width: 218px;
+    }
+
+    &_budget {
+      width: 391px;
+      padding-left: 8px;
+
+      .filter__item-label{
+        padding: 27px 23px;
+      }
+
+    }
+
+    &_room {
+      width: 256px;
+    }
+
+  }
+
+}

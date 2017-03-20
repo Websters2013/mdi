@@ -1,0 +1,174 @@
+.contact{
+
+  &__form{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 178px;
+    @include malva-regular;
+    font-size: 11px;
+
+    > div {
+      width: 100%;
+      margin-bottom: 25px;
+      padding: 0 15px;
+    }
+
+    h1{
+      margin-bottom: 23px;
+      color: #131313;
+      @include malva-bold;
+      font-size: 27px;
+    }
+
+    label{
+      display: block;
+      position: relative;
+      margin-bottom: 7px;
+      padding-top: 12px;
+
+      span{
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include malva-regular;
+        font-size: 11px;
+        text-transform: uppercase;
+        -webkit-transition: color .3s ease, opacity .3s ease, visibility .3s ease;
+        transition: color .3s ease, opacity .3s ease, visibility .3s ease;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+    }
+
+    input, textarea {
+      width: 100%;
+      height: 42px;
+      padding: 0 2px;
+      border: none;
+      border-bottom: 3px solid #e3e3e3;
+      color: #000;
+      @include malva-bold;
+      font-size: 16px;
+      -webkit-transition: border-bottom-color .3s ease;
+      transition: border-bottom-color .3s ease;
+
+      &:focus{
+        border-bottom-color: #f12ab6;
+
+        + span {
+          opacity: 1;
+          visibility: visible;
+          color: #f12ab6;
+        }
+
+      }
+
+      &.full + span{
+        opacity: 1;
+        visibility: visible;
+      }
+
+    }
+
+    textarea{
+      margin: 10px 0 18px;
+    }
+
+    form{
+      display: block;
+      width: 100%;
+      max-width: 452px;
+      margin: 0 auto;
+    }
+
+    button{
+      display: block;
+      width: 162px;
+      height: 45px;
+      margin: 0 0 0 auto;
+      border: none;
+      color: #fff;
+      @include malva-bold;
+      font-size: 14px;
+      background-color: #131313;
+      text-transform: uppercase;
+      -webkit-transition: background-color .3s ease;
+      transition: background-color .3s ease;
+
+      &:hover{
+        background-color: #f12ab6;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .contact{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    &__form{
+      width: 56%;
+      padding: 0 20px;
+
+      > div {
+        margin-bottom: 0;
+        padding: 0;
+      }
+
+      h1{
+        margin-bottom: 73px;
+        font-size: 48px;
+      }
+
+      label{
+        margin-left: 30px;
+      }
+
+      textarea {
+        height: 109px;
+        padding-top: 77px;
+
+        &:focus, &.full{
+          padding-top: 0;
+        }
+
+      }
+
+      form{
+        margin: 0;
+      }
+
+    }
+
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .contact{
+
+    &__form{
+      padding: 278px 0 0;
+
+      > div {
+        width: 673px;
+      }
+
+      label{
+        margin-left: 100px;
+      }
+
+    }
+
+  }
+
+}

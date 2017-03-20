@@ -1,0 +1,61 @@
+.menu-header{
+  display: none;
+}
+
+@media (min-width: $desktop) {
+
+  .menu{
+    display: none;
+
+    &-btn {
+      display: none;
+    }
+
+  }
+
+  .menu-header{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1170px;
+    margin: 42px auto 0;
+    @include malva-regular;
+    font-size: 16px;
+
+    &__item{
+      position: relative;
+      margin: 0 17px;
+      color: #8f8f8f;
+
+      &:after{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-bottom: 1px solid #8f8f8f;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: transform .3s ease;
+        transition: transform .3s ease;
+        content: '';
+      }
+
+      &.active{
+        color: #fff;
+        cursor: default;
+
+        &:after{
+          display: none;
+        }
+
+      }
+
+      &:hover:after{
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+
+    }
+
+  }
+
+}

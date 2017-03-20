@@ -1,0 +1,212 @@
+.menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 472px;
+  padding: 44px 30px;
+  background: #f7f7f7;
+  z-index: 3;
+  -webkit-transform: translateX(472px);
+  transform: translateX(472px);
+  overflow-y: auto;
+  -webkit-transition: transform .3s ease .3s, width .3s ease;
+  transition: transform .3s ease .3s, width .3s ease;
+
+  &__wrap{
+    width: 260px;
+    padding: 52px 16px 20px 0;
+    font-size: 34px;
+    text-align: right;
+    border-right: 2px solid #e9e9e9;
+    @include malva-bold;
+  }
+
+  &__item{
+    display: inline-block;
+    position: relative;
+    margin-top: 46px;
+    color: #aeaeae;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+
+    &:before{
+      content: '';
+      position: absolute;
+      right: -26px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border: 4px solid #f6f6f6;
+      background-color: #000;
+      opacity: 0;
+      -webkit-transition: opacity .3s ease;
+      transition: opacity .3s ease;
+    }
+
+    &:after{
+      position: absolute;
+      right: 7px;
+      bottom: -2px;
+      height: 2px;
+      left: 100%;
+      background-color: #e9e9e9;
+      -webkit-transition: left .3s ease;
+      transition: left .3s ease;
+      content: '';
+    }
+
+    &.active{
+      color: #000;
+      cursor: default;
+
+      &:before{
+        opacity: 1;
+      }
+
+      &:after{
+        visibility: hidden;
+      }
+
+    }
+
+    &:hover:after{
+      left: 0;
+    }
+
+  }
+
+  &__close{
+    position: relative;
+    padding: 6px 31px 6px 10px;
+    color: #000;
+    font-size: 14px;
+    @include malva-bold;
+
+    span{
+      position: absolute;
+      top: -5px;
+      right: -14px;
+      width: 29px;
+      height: 29px;
+      border-radius: 50px;
+      -webkit-transition: top .3s ease, transform .3s ease;
+      transition: top .3s ease, transform .3s ease;
+
+      &:before,
+      &:after{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        width: 2px;
+        height: 28px;
+        background-color: #000;
+        content: '';
+      }
+
+      &:before{
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      }
+
+      &:after{
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+        transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      }
+
+    }
+
+    &:hover span{
+      top: -2px;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+
+  }
+
+  &-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0 35px 0 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    @include malva-bold;
+
+    span{
+      position: absolute;
+      width: 25px;
+      top: 0;
+      right: 0;
+      height: 2px;
+      margin: 7px 0;
+      background-color: #fff;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      -webkit-transition: width .3s ease;
+      transition: width .3s ease;
+
+      &:before,
+      &:after{
+        position: absolute;
+        left: 0;
+        height: 2px;
+        background-color: inherit;
+        content: '';
+        -webkit-transition: width .3s ease;
+        transition: width .3s ease;
+      }
+
+      &:before{
+        top: -6px;
+        width: 35px;
+      }
+
+      &:after{
+        bottom: -6px;
+        width: 18px;
+      }
+
+    }
+
+    &:hover{
+
+      span:before,
+      span:after{
+        width: 25px;
+      }
+
+    }
+
+  }
+
+  &_open{
+    width: 100%;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: transform .3s ease, width .3s ease .3s;
+    transition: transform .3s ease, width .3s ease .3s;
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .menu{
+    padding: 44px 68px;
+
+    &-btn {
+      top: 49px;
+      right: 57px;
+      padding: 0 43px 0 0;
+    }
+
+  }
+
+}

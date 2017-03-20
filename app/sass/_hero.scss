@@ -1,0 +1,43 @@
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: url(../pic/bg-hero.jpg) no-repeat center;
+  background-size: cover;
+  z-index: 1;
+
+  img{
+    display: block;
+    width: 100%;
+  }
+
+  &__footnote{
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    color: #fff;
+    @include malva-regular;
+    font-size: 13px;
+    letter-spacing: 1.3px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .hero {
+    height: calc( 100% - 88px );
+
+    &__footnote{
+      bottom: 45px;
+    }
+
+  }
+
+}

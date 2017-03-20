@@ -1,0 +1,95 @@
+.site {
+  position: relative;
+  min-width: 320px;
+  width: 100%;
+  min-height: 100%;
+  background-color: $site-back;
+  overflow: hidden;
+  z-index: 1;
+
+  &-first-scene{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    -webkit-transition: height 1s ease-in-out;
+    transition: height 1s ease-in-out;
+    z-index: 3;
+
+    &.hide{
+      height: 0;
+    }
+
+  }
+
+  &__header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 40px;
+    z-index: 3;
+    -webkit-transition: transform .4s ease .4s;
+    transition: transform .4s ease .4s;
+
+    &-hide{
+      -webkit-transform: translateY(-163px);
+      transform: translateY(-163px);
+    }
+
+  }
+
+  &__footer{
+    padding: 20px 15px 10px;
+    background-color: #fff;
+    //background-color: #ededed;
+    @include malva-regular;
+    font-size: 16px;
+    line-height: 22px;
+    color: #606060;
+    overflow: hidden;
+
+    &-wrap{
+      position: relative;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .site {
+
+    &__footer{
+      height: 372px;
+      padding-top: 92px;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-landscape) {
+  .site {
+
+  }
+}
+
+@media (min-width: $desktop) {
+
+  .site {
+
+  }
+
+}
+
