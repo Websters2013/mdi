@@ -17,8 +17,8 @@
     width: 100px;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    -webkit-transition: transform .5s ease, top .45s ease;
-    transition: transform .5s ease, top .45s ease;
+    -webkit-transition: transform .2s ease, top .45s ease;
+    transition: transform .2s ease, top .45s ease;
 
     svg{
       display: block;
@@ -28,11 +28,6 @@
       .st1{fill:#F7C059;}
       .st2{fill:#fff;}
 
-    }
-
-    img{
-      display: block;
-      width: 100%;
     }
 
   }
@@ -83,8 +78,8 @@
 
       .preloader__logo_single{
         top: 31px;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%) translateY(0);
+        transform: translateX(-50%) translateY(0);
       }
 
     }

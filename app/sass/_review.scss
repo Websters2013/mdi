@@ -1,6 +1,6 @@
 .review {
   padding-bottom: 50px;
-  background-color: #ededed;
+  background-color: #fff;
 
   &__wrap{
     position: relative;
@@ -113,7 +113,7 @@
 
   .review {
     padding: 540px 0 43px;
-    background: url("../img/bg-promo.jpg") no-repeat 50% calc( 100% - 189px ) #ededed;
+    background: url("../img/bg-promo.jpg") no-repeat 50% calc( 100% - 189px ) #fff;
 
     &__wrap{
       display: flex;

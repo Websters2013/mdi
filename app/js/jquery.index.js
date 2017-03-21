@@ -4,8 +4,8 @@
 
     $( function(){
 
-        $.each( $( '.site-first-scene' ), function() {
-            new Hero ( $( this ) );
+        $.each( $( '.site' ), function() {
+            new Page ( $( this ) );
         } );
 
         $.each( $( '.review' ), function() {
@@ -14,62 +14,20 @@
 
     } );
 
-    var Promo = function( obj ) {
-
-        //private properties
-        var _obj = obj,
-            _self = this,
-            _item = _obj.find( '.promo__item' ),
-            _site = $( '.site' ),
-            _window = $( window ),
-            _action = false,
-            _canScroll = false,
-            _hero = new Hero( $('.site-first-scene') );
-
-        //private methods
-        var _onEvent = function() {
-
-            },
-            _getScrollWidth = function (){
-                var scrollDiv = document.createElement( 'div'),
-                    scrollBarWidth;
-
-                scrollDiv.className = 'promo__scrollbar-measure';
-
-                document.body.appendChild( scrollDiv );
-
-                scrollBarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-
-                document.body.removeChild(scrollDiv);
-
-                return scrollBarWidth;
-            },
-            _construct = function() {
-                _initFrame();
-                _onEvent();
-                _obj[ 0 ].obj = _self;
-            };
-
-        //public properties
-        _self.first = false;
-
-        //public methods
-
-        _construct();
-    };
-
-    var Hero = function( obj ) {
+    var Page = function( obj ) {
 
         //private properties
         var _obj = obj,
             _self = this,
             _head = $( '.site__header' ),
-            _site = $( '.site' ),
-            _window = $( window ),
-            _canScroll = false,
-            _scrollIcon = _obj.find( '.hero__footnote' ),
+            _hero = $( '.site-first-scene' ),
+            _scrollIcon = _hero.find( '.hero__footnote' ),
             _promo = _obj.find( '.promo' ),
             _promoItem = _obj.find( '.promo__item' ),
+            _promoPagination = _obj.find( '.promo__pagination' ),
+            _promoSkip = _obj.find( '.promo__skip' ),
+            _window = $( window ),
+            _canScroll = false,
             _headerHammer = null,
             _action = false,
             _promoFlag = false,
@@ -160,63 +118,43 @@
                         _checkScroll(1);
                     }
                 });
+                _obj.on({
+                    'scroll': function () {
+                        _canScroll = true;
+                    }
+                });
+                _promoSkip.on( {
+                    click: function() {
+
+                        $( '.site' ).animate( {
+                            scrollTop: _promo.outerHeight()
+                        }, 600);
+
+                        return false;
+                    }
+                } );
             },
             _initHammer = function(){
                 _headerHammer = new Hammer.Manager( $('body')[0] );
                 _headerHammer.add( new Hammer.Pan({ direction: Hammer.DIRECTION_ALL, threshold: 0 }) );
                 delete Hammer.defaults.cssProps.userSelect;
             },
-            _checkPromoDown = function () {
+            _initPromo = function () {
 
-                _stop = false;
+                _promoItem.each( function () {
+                    _promoPagination.append( '<span></span>' )
+                } );
 
-                var curElem = $( '.promo__item.active' ),
-                    lengthItems = $( '.promo__item' ).length;
-
-                if ( lengthItems >= curElem.index() + 2 ) {
-
-                    curElem.each( function () {
-
-                        $( this ).next( '.promo__item' ).addClass( 'active' );
-                        $( this ).removeClass( 'active' );
-
-                        _firstPromoFlag = false;
-                    } );
-
-                } else {
-                    _canScroll = true;
-                }
-
-                //for css animation
-                setTimeout(function(){
-                    _stop = true;
-                }, 1000);
+                _pagination();
 
             },
-            _checkPromoUp = function () {
+            _pagination  = function () {
 
-                _stop = false;
+                var curPoint = _promoItem.filter( '.active' ).index(),
+                    span = _promoPagination.find( 'span' );
 
-                var curElem = $( '.promo__item.active' );
-
-                _canScroll = false;
-
-                if ( curElem.index() >= 1 ) {
-
-                    curElem.each( function () {
-                        $( this ).prev( '.promo__item' ).addClass( 'active' );
-                        $( this ).removeClass( 'active' );
-                    } );
-
-                } else {
-                    _firstPromoFlag = true;
-                    _promoFlag = false;
-                }
-
-                //for css animation
-                setTimeout(function(){
-                    _stop = true;
-                }, 1000);
+                span.removeClass( 'active' );
+                span.eq( curPoint ).addClass( 'active' );
 
             },
             _checkScroll = function( direction ){
@@ -230,9 +168,72 @@
                     _showHero();
                     _canScroll = false;
                 }
-                else if ( direction < 0 && ( _site.scrollTop() == 0 ) && _stop ) {
+                else if ( direction < 0 && ( _obj.scrollTop() == 0 ) && _stop ) {
                     _checkPromoUp()
                 }
+
+            },
+            _checkPromoDown = function () {
+
+                _stop = false;
+
+                var curElem = _promoItem.filter( '.active' ),
+                    lengthItems = _promoItem.length;
+
+                if ( ( lengthItems - 2 ) >= curElem.index() ) {
+
+                    curElem.each( function () {
+
+                        $( this ).next( '.promo__item' ).addClass( 'active' );
+                        $( this ).addClass( 'prev' );
+                        $( this ).removeClass( 'active' );
+
+                        _firstPromoFlag = false;
+                    } );
+
+                } else {
+                    _canScroll = true;
+                }
+
+                _pagination();
+
+                //for css animation
+                setTimeout(function(){
+                    _stop = true;
+                }, 1000);
+
+            },
+            _checkPromoUp = function () {
+
+                _stop = false;
+                _canScroll = false;
+
+                var curElem = _promoItem.filter( '.active' );
+
+                if ( curElem.index() >= 1 ) {
+
+                    console.log( curElem.index() )
+
+                    curElem.each( function () {
+                        $( this ).prev( '.promo__item' ).removeClass( 'prev' );
+                        $( this ).prev( '.promo__item' ).addClass( 'active' );
+                        $( this ).removeClass( 'active' );
+                    } );
+
+                    if ( curElem.index() == 1 ) {
+                        _firstPromoFlag = true;
+                        _promoFlag = false;
+                        console.log('comeon')
+                    }
+
+                }
+
+                _pagination();
+
+                //for css animation
+                setTimeout(function(){
+                    _stop = true;
+                }, 1000);
 
             },
             _hideHero = function(){
@@ -242,7 +243,7 @@
                 if(!_action){
                     _action = true;
 
-                    _obj.addClass('hide');
+                    _hero.addClass('hide');
                     _self.hide = true;
                     _head.addClass('site__header-hide');
                     $( '.menu' )[0].obj.destroy();
@@ -265,7 +266,7 @@
                 if(!_action){
                     _action = true;
 
-                    _obj.removeClass('hide');
+                    _hero.removeClass('hide');
                     _head.removeClass('site__header-hide');
 
                     //for css animation
@@ -275,9 +276,12 @@
                     }, 1000);
                 }
 
+                _promoFlag = false;
+
             },
             _construct = function() {
                 _initHammer();
+                _initPromo();
                 _onEvent();
                 _obj[ 0 ].obj = _self;
             };

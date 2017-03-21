@@ -13,7 +13,9 @@
     left: 50%;
     color: #fff;
     @include malva-bold;
-    font-size: 38px;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
   }
@@ -35,13 +37,14 @@
 
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $tablet-portrait) {
 
   .catalog {
     position: absolute;
     left: 50%;
     bottom: 38px;
-    width: 946px;
+    width: 90%;
+    max-width: 946px;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     z-index: 5;
@@ -77,6 +80,14 @@
       transition: text-shadow .5s ease;
     }
 
+  }
+
+}
+
+@media (min-width: $desktop) {
+
+  .catalog {
+    width: 60%;
   }
 
 }

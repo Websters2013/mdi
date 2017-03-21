@@ -13,6 +13,7 @@
   h1{
     max-width: 1140px;
     margin: 0 auto 45px;
+    @include malva-bold;
     font-size: 27px;
     line-height: 31px;
     letter-spacing: .5px;

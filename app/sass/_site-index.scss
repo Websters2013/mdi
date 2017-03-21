@@ -14,12 +14,14 @@
     left: 0;
     height: 100%;
     overflow: hidden;
-    -webkit-transition: height 1s ease-in-out;
-    transition: height 1s ease-in-out;
+    background-color: #fff;
+    -webkit-transition: height 1s ease-in-out, padding-bottom 1s ease-in-out .5s;
+    transition: height 1s ease-in-out, padding-bottom .5s ease-in-out .5s;
     z-index: 3;
 
     &.hide{
       height: 0;
+      padding-bottom: 0;
     }
 
   }
@@ -32,6 +34,7 @@
 
     &-first-scene{
       display: block;
+      padding-bottom: 88px;
     }
 
   }

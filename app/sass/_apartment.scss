@@ -1,10 +1,12 @@
 .apartment {
+  position: relative;
   margin: 0 auto 255px;
   padding: 169px 15px 0;
 
   &__frame{
     position: relative;
     width: 100%;
+    transition: opacity .3s ease, visibility .3s ease;
   }
 
   &__info-frame{
@@ -18,6 +20,11 @@
     font-size: 27px;
     line-height: 33px;
     @include malva-bold;
+
+    &:first-letter{
+      text-transform: uppercase;
+    }
+
   }
 
   &__price{
@@ -36,6 +43,13 @@
     @include malva-regular;
     font-size: 16px;
     line-height: 26px;
+
+    p, span{
+      display: block;
+      color: inherit!important;
+      font-size: inherit!important;
+      line-height: inherit!important;
+    }
 
     &:before{
       position: absolute;
@@ -155,6 +169,66 @@
 
 }
 
+.loading{
+
+  .apartment {
+    padding-bottom: 200px;
+
+    &__frame{
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+  .loader{
+    opacity: 1;
+  }
+
+  .gallery{
+    padding-bottom: 200px;
+  }
+
+}
+
+.noResults{
+
+  .apartment {
+    padding-bottom: 200px;
+
+    &__frame{
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+  .gallery{
+    padding-bottom: 200px;
+  }
+
+  .no-results{
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+}
+
+.no-results{
+  color: #fff;
+  font-size: 27px;
+  line-height: 33px;
+  @include malva-bold;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .3s ease, visibility .3s ease;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
 @media (min-width: $phone-landscape) {
 
   .apartment {
@@ -227,6 +301,20 @@
 
   }
 
+  .loading, .noResults{
+
+    .gallery{
+      padding-bottom: 230px;
+    }
+
+  }
+
+  .no-results{
+    max-width: 545px;
+    font-size: 48px;
+    line-height: 56px;
+  }
+
 }
 
 @media (min-width: $desktop) {
@@ -250,7 +338,7 @@
     }
 
     &__content {
-      margin-bottom: 0;
+      margin-bottom: 25px;
       padding-right: 0;
     }
 
@@ -266,6 +354,14 @@
 
     &__prev{
       left: -138px;
+    }
+
+  }
+
+  .loading, .noResults{
+
+    .gallery{
+      padding-bottom: 320px;
     }
 
   }

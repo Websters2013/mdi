@@ -117,6 +117,7 @@ var FilterForm = function( obj ){
                 curBath = curItem.BathRooms,
                 curCurrency = curItem.Currency,
                 curPictures = curItem.Pictures,
+                curId = curItem.EstateID,
                 item = $( '<div class="list__item list__item_new"></div>' ),
                 itemContent = $( '<div class="list__content"></div>' ),
                 itemName = $( '<h2>'+curName+'</h2>' ),
@@ -127,7 +128,7 @@ var FilterForm = function( obj ){
                 swiper = $( '<div class="list__gallery-swipe swiper-container"></div>' ),
                 swiperWrap = $( '<div class="swiper-wrapper"></div>' ),
                 swiperPagination = $( '<div class="list__gallery-pagination"></div>' ),
-                swiperLink = $( '<div class="list__more"><a href="#">Découvrir le bien <svg viewBox="0 0 58.5 28.5"><g><g><path d="M58.5,14.25a1.75,1.75,0,0,0-.42-1L46.08.47A1.51,1.51,0,0,0,44,.41a1.55,1.55,0,0,0-.06,2.12l9.63,10.22H1.5a1.5,1.5,0,0,0,0,3h52L43.9,26A1.57,1.57,0,0,0,44,28.09,1.5,1.5,0,0,0,46.08,28l12-12.75A1.33,1.33,0,0,0,58.5,14.25Z"/></g></g></svg></a></div>' );
+                swiperLink = $( '<div class="list__more"><a href="single.html?id='+ curId +'">Découvrir le bien <svg viewBox="0 0 58.5 28.5"><g><g><path d="M58.5,14.25a1.75,1.75,0,0,0-.42-1L46.08.47A1.51,1.51,0,0,0,44,.41a1.55,1.55,0,0,0-.06,2.12l9.63,10.22H1.5a1.5,1.5,0,0,0,0,3h52L43.9,26A1.57,1.57,0,0,0,44,28.09,1.5,1.5,0,0,0,46.08,28l12-12.75A1.33,1.33,0,0,0,58.5,14.25Z"/></g></g></svg></a></div>' );
 
             if ( curArea !== null ) {
 

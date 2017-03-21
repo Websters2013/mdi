@@ -1,15 +1,16 @@
 @import "main";
-@import "loader";
 
 @import "reset";
 @import "site";
+@import "site-inside";
 @import "menu";
+@import "menu-inside";
 @import "logo";
+@import "logo-inside";
 @import "footer";
 
-@import "logo-inside";
-@import "site-inside";
-@import "menu-inside";
+@import "animate";
+@import "loader";
 @import "websters-select";
 @import "list";
 @import "filter";
