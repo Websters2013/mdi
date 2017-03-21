@@ -14,7 +14,6 @@
 
         //private properties
         var _obj = obj,
-            _apartmenInfo = _obj.find( '.apartment' ),
             _canSendRequest = true,
             _loadFlag,
             _request = new XMLHttpRequest();
@@ -54,7 +53,13 @@
 
                     $( '.apartment__title' ).html( curSubCategory +' '+ curPurposes +' à '+ curCity );
                     $( '.apartment__price' ).html( curPriceText +' '+ curCurrency );
-                    $( '.apartment__content' ).html( curLongDescription );
+
+                    if ( curLongDescription !== "" ) {
+
+                        $( '.apartment__content' ).html( curLongDescription );
+                        $( '.apartment__content' ).css( 'display', 'block' )
+
+                    }
 
                     if ( curArea !== null ) {
 
@@ -96,6 +101,30 @@
 
                     _obj.removeClass( 'loading' );
 
+                    // var details = item.Details,
+                    //     characteristicWrap = $( '.characteristic__wrap' ),
+                    //     cadastralIncome = characteristicWrap.find( '#CadastralIncome' ),
+                    //     realEstate = characteristicWrap.find( '#RealEstate' ),
+                    //     yearOfConstruction = characteristicWrap.find( '#YearOfConstruction' ),
+                    //     disabledAccess = characteristicWrap.find( '#DisabledAccess' ),
+                    //     PEB = characteristicWrap.find( '#PEB' ),
+                    //     electricityCertificate = characteristicWrap.find( '#ElectricityCertificate' ),
+                    //     reinforcedDoor = characteristicWrap.find( '#ReinforcedDoor' ),
+                    //     parlophone = characteristicWrap.find( '#Parlophone' ),
+                    //     elevator = characteristicWrap.find( '#Elevator' );
+                    //
+                    // cadastralIncome.html ( details[0].Subdetails[0].Value +' '+ curCurrency );
+                    // realEstate.html ( details[1].Subdetails[0].Value +' '+ curCurrency );
+                    // yearOfConstruction.html ( details[4].Subdetails[0].Value );
+                    // disabledAccess.html ( ( details[6].Subdetails[0].Value > 0 ) ? 'Oui' : 'Non' );
+                    // PEB.html ( details[28].Subdetails[0].Value );
+                    // electricityCertificate.html ( ( details[31].Subdetails[0].Value > 0 ) ? 'Oui' : 'Non' );
+                    // reinforcedDoor.html ( ( details[37].Subdetails[0].Value > 0 ) ? 'Oui' : 'Non' );
+                    // parlophone.html ( ( details[38].Subdetails[0].Value > 0 ) ? 'Oui' : 'Non' );
+                    // elevator.html ( ( details[42].Subdetails[0].Value > 0 ) ? 'Oui' : 'Non' );
+
+                    // sevenuCadastral.append()
+
                 });
 
             },
@@ -104,7 +133,7 @@
                 var data = null;
 
                 data = {
-                    ClientId: "ff5cc96207e54f528fc1",
+                    ClientId: "1411952449",
                     Page: 0,
                     RowsPerPage: 1,
                     Language:'fr-BE',

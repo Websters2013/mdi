@@ -1,0 +1,63 @@
+.popup__characteristic{
+  padding: 56px 76px 12px 62px;
+}
+
+.characteristic {
+
+  &__title{
+    margin-bottom: 45px;
+    @include malva-bold;
+    font-size: 36px;
+  }
+
+  &__wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+
+    dl{
+      width: 25%;
+    }
+
+    dd{
+      line-height: 21px;
+
+      table{
+        width: 100%;
+      }
+
+      td{
+        width: 100%;
+      }
+
+      strong{
+        position: relative;
+      }
+
+      sup{
+        position: absolute;
+        top: -3px;
+        font-size: 8px
+      }
+
+    }
+
+    dt{
+      margin-bottom: 21px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+  }
+
+}
+
+@media (min-width: $tablet-portrait) {
+
+  .characteristic {
+
+  }
+
+}
