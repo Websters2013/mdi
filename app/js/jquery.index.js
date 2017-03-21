@@ -236,6 +236,7 @@
                 //for css animation
                 setTimeout(function(){
                     _stop = true;
+                    console.log( 'go' );
                 }, 1000);
 
             },
@@ -266,6 +267,7 @@
                 //for css animation
                 setTimeout(function(){
                     _stop = true;
+                    console.log( 'go' );
                 }, 1000);
 
             },
@@ -285,6 +287,7 @@
                     setTimeout(function(){
                         _action = false;
                         _stop = true;
+                        console.log( 'go' );
                     }, 1500);
 
                     _promoFlag = true;
@@ -306,6 +309,7 @@
                     setTimeout(function(){
                         _action = false;
                         _stop = true;
+                        console.log( 'go' );
                     }, 1000);
                 }
 
