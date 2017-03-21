@@ -7,28 +7,6 @@
   overflow: hidden;
   z-index: 1;
 
-  &-first-scene{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    overflow: hidden;
-    -webkit-transition: height 1s ease-in-out;
-    transition: height 1s ease-in-out;
-    z-index: 3;
-
-    &.hide{
-      height: 0;
-    }
-
-  }
-
   &__header{
     position: absolute;
     top: 0;
@@ -36,8 +14,8 @@
     width: 100%;
     padding-top: 40px;
     z-index: 3;
-    -webkit-transition: transform .4s ease .4s;
-    transition: transform .4s ease .4s;
+    -webkit-transition: transform .2s ease .2s;
+    transition: transform .2s ease .2s;
 
     &-hide{
       -webkit-transform: translateY(-163px);

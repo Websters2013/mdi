@@ -1,6 +1,6 @@
 .promo {
   min-height: 100%;
-  padding: 25px 0 100px;
+  padding: 65px 0 100px;
   position: relative;
   background-color: #fff;
 
@@ -200,7 +200,8 @@
 
     &__topic{
       position: absolute;
-      top: 18%;
+      top: 50%;
+      margin-top: -335px;
       padding: 0 0 0 183px;
     }
 
@@ -249,8 +250,8 @@
       opacity: 0;
       -webkit-transform: translateY(100%);
       transform: translateY(100%);
-      -webkit-transition: transform .8s ease, opacity .3s ease;
-      transition: transform .8s ease, opacity .3s ease;
+      -webkit-transition: transform .3s ease, opacity .15s ease;
+      transition: transform .3s ease, opacity .15s ease;
     }
 
     &__img{
@@ -261,8 +262,8 @@
         min-height: 692px;
         -webkit-transform: translateY(-101%);
         transform: translateY(-101%);
-        -webkit-transition: transform 1s ease;
-        transition: transform 1s ease;
+        -webkit-transition: transform .5s ease;
+        transition: transform .5s ease;
       }
 
     }

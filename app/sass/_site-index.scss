@@ -15,13 +15,35 @@
     height: 100%;
     overflow: hidden;
     background-color: #fff;
-    -webkit-transition: height 1s ease-in-out, padding-bottom 1s ease-in-out .5s;
-    transition: height 1s ease-in-out, padding-bottom .5s ease-in-out .5s;
+    -webkit-transition: height .5s ease-in-out, padding-bottom .25s ease-in-out .25s;
+    transition: height .5s ease-in-out, padding-bottom .25s ease-in-out .25s;
     z-index: 3;
+
+    .hero > * {
+      transition: opacity .15s ease .15s;
+    }
 
     &.hide{
       height: 0;
       padding-bottom: 0;
+
+      .hero > * {
+        opacity: 0;
+      }
+
+      .menu-btn{
+        color: #1f1f1f;
+        -webkit-transition: color .3s ease .4s;
+        transition: color .3s ease .4s;
+
+        span{
+          background-color: #1f1f1f;
+          -webkit-transition: width .3s ease, background-color .3s ease .4s;
+          transition: width .3s ease, background-color .3s ease .4s;
+        }
+
+      }
+
     }
 
   }

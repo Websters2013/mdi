@@ -130,9 +130,45 @@
                             scrollTop: _promo.outerHeight()
                         }, 600);
 
+                        if ( _promoItem.filter( '.active' ).index() == 0 ) {
+                            _firstPromoFlag = true;
+                            _promoFlag = false;
+                            _canScroll = false;
+                        }
+
                         return false;
                     }
                 } );
+                _promoPagination.find( 'span' ).on( {
+                    click: function () {
+
+                        _stop = false;
+
+                        var curPoint = $( this ).index();
+
+                        _promoItem.removeClass( 'active' );
+                        _promoItem.eq( curPoint ).addClass( 'active' );
+                        _promoItem.eq( curPoint ).removeClass( 'prev' );
+                        _promoItem.filter( '.active' ).prevAll( '.promo__item' ).addClass( 'prev' )
+                        _promoItem.filter( '.active' ).nextAll( '.promo__item' ).removeClass( 'prev' )
+
+                        _pagination();
+
+                        if ( _promoItem.filter( '.active' ).index() == 0 ) {
+                            _firstPromoFlag = true;
+                            _promoFlag = false;
+                        } else {
+                            _firstPromoFlag = false;
+                            _promoFlag = false;
+                        }
+
+                        //for css animation
+                        setTimeout(function(){
+                            _stop = true;
+                        }, 1000);
+
+                    }
+                } )
             },
             _initHammer = function(){
                 _headerHammer = new Hammer.Manager( $('body')[0] );
@@ -161,14 +197,14 @@
                 if ( direction > 0 && !_canScroll && !_menu.opened && !_promoFlag && _stop ){
                     _hideHero();
                 }
-                else if ( direction > 0 && !_canScroll && _promoFlag && _stop ){
+                else if ( direction > 0 && !_canScroll && !_menu.opened && _promoFlag && _stop ){
                     _checkPromoDown();
                 }
-                else if ( direction < 0 && !_canScroll && _firstPromoFlag && _stop ) {
+                else if ( direction < 0 && !_canScroll && !_menu.opened && _firstPromoFlag && _stop ) {
                     _showHero();
                     _canScroll = false;
                 }
-                else if ( direction < 0 && ( _obj.scrollTop() == 0 ) && _stop ) {
+                else if ( direction < 0 && ( _obj.scrollTop() == 0 ) && !_menu.opened && _stop ) {
                     _checkPromoUp()
                 }
 
@@ -212,8 +248,6 @@
 
                 if ( curElem.index() >= 1 ) {
 
-                    console.log( curElem.index() )
-
                     curElem.each( function () {
                         $( this ).prev( '.promo__item' ).removeClass( 'prev' );
                         $( this ).prev( '.promo__item' ).addClass( 'active' );
@@ -223,7 +257,6 @@
                     if ( curElem.index() == 1 ) {
                         _firstPromoFlag = true;
                         _promoFlag = false;
-                        console.log('comeon')
                     }
 
                 }
@@ -252,7 +285,7 @@
                     setTimeout(function(){
                         _action = false;
                         _stop = true;
-                    }, 1000);
+                    }, 1500);
 
                     _promoFlag = true;
 

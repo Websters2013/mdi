@@ -10,7 +10,7 @@
   width: 472px;
   padding: 44px 30px;
   background: #f7f7f7;
-  z-index: 3;
+  z-index: 5;
   -webkit-transform: translateX(472px);
   transform: translateX(472px);
   overflow-y: auto;
@@ -129,7 +129,7 @@
   }
 
   &-btn {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     padding: 0 35px 0 0;
@@ -137,7 +137,10 @@
     background: transparent;
     color: #fff;
     font-size: 14px;
+    z-index: 4;
     @include malva-bold;
+    -webkit-transition: color .3s ease;
+    transition: color .3s ease;
 
     span{
       position: absolute;
@@ -149,8 +152,8 @@
       background-color: #fff;
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%);
-      -webkit-transition: width .3s ease;
-      transition: width .3s ease;
+      -webkit-transition: width .3s ease, background-color .3s ease;
+      transition: width .3s ease, background-color .3s ease;
 
       &:before,
       &:after{
