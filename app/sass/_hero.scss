@@ -102,6 +102,7 @@
 @media (min-width: $desktop) {
 
   .hero {
+    min-height: 500px;
 
     &__footnote{
       bottom: 45px;

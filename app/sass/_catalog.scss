@@ -40,13 +40,10 @@
 @media (min-width: $tablet-portrait) {
 
   .catalog {
-    position: absolute;
-    left: 50%;
-    bottom: 38px;
+    position: relative;
     width: 90%;
+    margin: -107px auto 0;
     max-width: 946px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
     z-index: 2;
 
     &__item{
